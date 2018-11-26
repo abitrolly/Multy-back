@@ -59,6 +59,8 @@ func Init(conf *Configuration) (*Multy, error) {
 	multy := &Multy{
 		config: conf,
 	}
+
+	log.Infof("Connecting to DB: %s", conf.Database.Address)
 	// DB initialization
 	userStore, err := store.InitUserStore(conf.Database)
 	if err != nil {
